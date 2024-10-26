@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Vida Ecológica</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Registro en Vida Ecológica</h1>
+        <nav>
+            <a href="{% url 'lista_productos' %}">Productos</a>
+            <a href="{% url 'ver_carrito' %}">Carrito</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Crear una Cuenta</h2>
+        <form method="post" action="{% url 'registro' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Registrarse</button>
+        </form>
+    </main>
+</body>
+</html>

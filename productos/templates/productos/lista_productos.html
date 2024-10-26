@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Ecológicos - Vida Ecológica</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Vida Ecológica</h1>
+        <nav>
+            <a href="{% url 'lista_productos' %}">Productos</a>
+            <a href="{% url 'ver_carrito' %}">Carrito</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Lista de Productos Ecológicos</h2>
+        <ul>
+            {% for producto in productos %}
+            <li>
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+                <form action="{% url 'agregar_al_carrito' producto.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

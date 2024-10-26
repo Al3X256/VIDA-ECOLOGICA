@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Vida Ecológica</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Carrito de Compras</h1>
+        <nav>
+            <a href="{% url 'lista_productos' %}">Productos</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Contenido del Carrito</h2>
+        {% if items %}
+            <ul>
+                {% for item in items %}
+                <li>
+                    {{ item.producto.nombre }} - Cantidad: {{ item.cantidad }} - Precio: ${{ item.producto.precio }} <br>
+                    Subtotal: ${{ item.producto.precio|floatformat:2|multiply:item.cantidad }}
+                </li>
+                {% endfor %}
+            </ul>
+            <p>Total: ${{ total }}</p>
+        {% else %}
+            <p>Tu carrito está vacío.</p>
+        {% endif %}
+    </main>
+</body>
+</html>

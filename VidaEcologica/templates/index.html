@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Ecológica - Productos Sostenibles</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Vida Ecológica</h1>
+        <nav>
+            <a href="{% url 'lista_productos' %}">Productos</a>
+            <a href="{% url 'ver_carrito' %}">Carrito</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Descubre productos sostenibles para un planeta mejor</h2>
+        <p>Explora nuestra tienda de productos ecológicos, desde artículos para el hogar hasta alimentos naturales. Contribuye al cuidado del medio ambiente con cada compra.</p>
+    </main>
+</body>
+</html>
