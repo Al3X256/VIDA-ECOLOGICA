@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vidaecologica_db',
-        'USER': 'tu_usuario_mysql',
-        'PASSWORD': 'tu_contraseña_mysql',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
