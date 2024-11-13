@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if producto %}Editar Producto{% else %}Crear Producto{% endif %} - Vida Ecológica</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">{% if producto %}Editar Producto{% else %}Crear Producto{% endif %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">{% if producto %}Guardar Cambios{% else %}Crear Producto{% endif %}</button>
+        </form>
+        <a href="{% url 'productos:lista_productos' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</body>
+</html>
